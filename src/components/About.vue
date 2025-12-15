@@ -53,15 +53,15 @@ const stats = [
 
           <p class="about-text mb-6">
             Reconstructora de Tambos es una empresa autorizada y asegurada para
-            el transporte y manejo de residuos peligrosos y no peligrosos, con
-            permisos de CEDES, SEMARNAT y SCT. Cuenta con infraestructura,
-            equipamiento y personal capacitado para brindar servicios
-            ambientales integrales a industrias, comercios, minería y talleres,
-            atendiendo tanto a pequeños como grandes generadores de residuos.
-            Además, asesora a sus clientes para cumplir con la normativa vigente
-            y ofrece administración y segregación de residuos de manejo especial
-            (RME), garantizando reciclaje óptimo bajo estándares de seguridad,
-            higiene y responsabilidad ecológica.
+            el transporte y manejo de residuos, con permisos de CEDES, SEMARNAT
+            y SCT. Cuenta con infraestructura, equipamiento y personal
+            capacitado para brindar servicios ambientales integrales a
+            industrias, comercios, minería y talleres, atendiendo tanto a
+            pequeños como grandes generadores de residuos. Además, asesora a sus
+            clientes para cumplir con la normativa vigente y ofrece
+            administración y segregación de residuos de manejo especial (RME),
+            garantizando reciclaje óptimo bajo estándares de seguridad, higiene
+            y responsabilidad ecológica.
           </p>
 
           <!-- Stats -->

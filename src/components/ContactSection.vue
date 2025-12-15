@@ -1,16 +1,84 @@
 <script setup>
-import { reactive } from "vue";
+import { reactive, ref, computed } from "vue";
+import { useDisplay } from "vuetify";
+import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
+
+const { xs } = useDisplay();
+
+const loadingForm = ref(false);
+const sentMessage = ref(false);
 
 const formData = reactive({
+  message: "",
+  phone: "",
   name: "",
   email: "",
-  phone: "",
-  message: "",
+});
+
+const cleanForm = () => {
+  formData.name = "";
+  formData.email = "";
+  formData.phone = "";
+  formData.message = "";
+  loadingForm.value = false;
+};
+
+const isFormValid = computed(() => {
+  return (
+    formData.name !== "" &&
+    formData.email !== "" &&
+    formData.phone !== "" &&
+    formData.message !== ""
+  );
 });
 
 const handleSubmit = () => {
-  // Aquí conectarías API / backend
-  console.log("Form submitted:", { ...formData });
+  loadingForm.value = true;
+  emailjs
+    .send(
+      "service_57cec8c", // SERVICE ID
+      "template_gf3u1n9", // TEMPLATE ID
+      formData,
+      "66edDB1GVsv4zq1Gw" // USER ID/PUBLIC KEY
+    )
+    .then(
+      (response) => {
+        console.log(response.status);
+        loadingForm.value = false;
+        cleanForm();
+        Swal.fire({
+          position: xs.value ? "bottom" : "bottom-end",
+          icon: "success",
+          text: "¡Mensaje enviado con éxito!",
+          showConfirmButton: false,
+          timer: 2500,
+          backdrop: false,
+          customClass: {
+            popup: "containerSweetAlert",
+            icon: "iconSweetAlert",
+            htmlContainer: "htmlContainerSweetAlert",
+          },
+        });
+        sentMessage.value = true;
+      },
+      () => {
+        loadingForm.value = false;
+        Swal.fire({
+          position: xs.value ? "bottom" : "bottom-end",
+          icon: "error",
+          text: "Ocurrió un error al enviar el mensaje.",
+          showConfirmButton: false,
+          timer: 2500,
+          backdrop: false,
+          customClass: {
+            popup: "containerSweetAlert",
+            icon: "iconSweetAlert",
+            htmlContainer: "htmlContainerSweetAlert",
+          },
+        });
+      }
+    );
 };
 </script>
 
@@ -109,6 +177,7 @@ const handleSubmit = () => {
               <h4 class="mb-2 text-grey-darken-3">Teléfono</h4>
               <v-text-field
                 v-model="formData.phone"
+                v-mask="'(###) ###-####'"
                 placeholder="+52 555 123 4567"
                 variant="outlined"
                 single-line
@@ -132,6 +201,8 @@ const handleSubmit = () => {
                 size="x-large"
                 rounded="xl"
                 class="text-none font-weight-bold"
+                :disabled="!isFormValid"
+                :loading="loadingForm"
                 block
                 append-icon
                 flat

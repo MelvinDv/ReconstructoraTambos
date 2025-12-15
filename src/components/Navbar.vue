@@ -19,25 +19,45 @@
       />
 
       <v-spacer />
-      <v-btn href="#inicio" class="text-none" variant="text">Inicio</v-btn>
-      <v-btn href="#servicios" class="text-none" variant="text"
-        >Servicios</v-btn
-      >
-      <v-btn href="#nosotros" class="text-none" variant="text">Nosotros</v-btn>
-      <v-btn
-        href="#contacto"
-        class="text-none ms-4"
-        color="#009684"
-        variant="flat"
-        rounded
-        >Contacto</v-btn
-      >
+      <div class="d-none d-md-flex">
+        <v-btn href="#inicio" class="text-none" variant="text">Inicio</v-btn>
+        <v-btn href="#servicios" class="text-none" variant="text"
+          >Servicios</v-btn
+        >
+        <v-btn href="#nosotros" class="text-none" variant="text"
+          >Nosotros</v-btn
+        >
+        <v-btn
+          href="#contacto"
+          class="text-none ms-4"
+          color="#009684"
+          variant="flat"
+          rounded
+          >Contacto</v-btn
+        >
+      </div>
+
+      <v-btn icon class="d-md-none" @click="drawer = !drawer">
+        <v-icon>mdi-menu</v-icon>
+      </v-btn>
     </v-toolbar>
+
+    <v-navigation-drawer v-model="drawer" temporary location="right">
+      <v-list>
+        <v-list-item href="#inicio" title="Inicio" />
+        <v-list-item href="#servicios" title="Servicios" />
+        <v-list-item href="#nosotros" title="Nosotros" />
+        <v-list-item href="#contacto" title="Contacto" />
+      </v-list>
+    </v-navigation-drawer>
   </div>
 </template>
 
 <script setup>
+import { ref } from "vue";
 import logo from "../assets/logo.png";
+
+const drawer = ref(false);
 </script>
 
 <style scoped>

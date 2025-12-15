@@ -27,13 +27,25 @@ const currentYear = new Date().getFullYear();
           </p>
 
           <div class="socials">
-            <v-btn icon class="social-btn"
+            <v-btn
+              icon
+              class="social-btn"
+              href="https://www.facebook.com/reconstructoradetambos/"
+              target="_blank"
               ><v-icon color="white" icon="mdi-facebook"
             /></v-btn>
-            <v-btn icon class="social-btn"
+            <v-btn
+              icon
+              class="social-btn"
+              href="https://wa.me/526221387073?text=Hola%20me%20interesa%20tu%20servicio"
+              target="_blank"
               ><v-icon color="white" icon="mdi-whatsapp"
             /></v-btn>
-            <v-btn icon class="social-btn"
+            <v-btn
+              icon
+              class="social-btn"
+              href="https://youtu.be/4ZVBLeMOVmQ?si=RFqd5gFYqgwYLJzO"
+              target="_blank"
               ><v-icon icon="mdi-youtube" color="white"
             /></v-btn>
           </div>
