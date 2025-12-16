@@ -11,11 +11,6 @@
           Lo que
           <span class="gradient-text">ofrecemos</span>
         </h2>
-
-        <p class="services-subtitle">
-          Servicios especializados en reconstrucción de tambos con el más alto
-          estándar de calidad
-        </p>
       </div>
 
       <!-- Grid -->
@@ -25,7 +20,7 @@
           :key="i"
           cols="12"
           md="6"
-          lg="3"
+          lg="6"
         >
           <v-card class="service-card" elevation="1">
             <!-- Icon -->
@@ -47,6 +42,36 @@
           </v-card>
         </v-col>
       </v-row>
+
+      <v-card
+        v-for="(info, index) of moreInfo"
+        :key="index"
+        rounded="xl"
+        elevation="2"
+        class="overflow-hidden mt-8"
+      >
+        <v-row no-gutters :class="{ 'flex-row-reverse': reverse }">
+          <v-col cols="12" md="6">
+            <v-img :src="info.image" height="100%" cover />
+          </v-col>
+
+          <v-col cols="12" md="6" class="pa-8 pa-md-12 d-flex align-center">
+            <div>
+              <v-chip color="teal" variant="tonal" class="mb-4">
+                {{ info.tag }}
+              </v-chip>
+
+              <h3 class="text-h4 mb-4">
+                {{ info.title }}
+              </h3>
+
+              <p class="text-body-1 text-medium-emphasis">
+                {{ info.description }}
+              </p>
+            </div>
+          </v-col>
+        </v-row>
+      </v-card>
     </v-container>
 
     <!-- Dialog -->
@@ -67,7 +92,9 @@
           <h3>Descripción</h3>
           <p v-html="services[selectedService].details.fullDescription"></p>
 
-          <h4>Características</h4>
+          <h4 v-if="services[selectedService].details.features.length > 0">
+            Características
+          </h4>
           <ul class="features">
             <li
               v-for="(f, i) in services[selectedService].details.features"
@@ -78,7 +105,9 @@
             </li>
           </ul>
 
-          <h4>Beneficios</h4>
+          <h4 v-if="services[selectedService].details.benefits.length > 0">
+            Beneficios
+          </h4>
           <div class="benefits">
             <div
               v-for="(b, i) in services[selectedService].details.benefits"
@@ -108,6 +137,18 @@
                 :alt="section.alt"
                 max-width="350"
               />
+            </div>
+
+            <div v-if="section.type === 'video'" class="d-flex flex-wrap gap-4">
+              <video
+                controls
+                width="600"
+                v-for="(vidSrc, vidIndex) in section.src"
+                :key="vidIndex"
+              >
+                <source :src="vidSrc" type="video/mp4" />
+                Tu navegador no soporta videos
+              </video>
             </div>
           </div>
         </v-card-text>
@@ -318,6 +359,8 @@ import dompe from "../assets/dompe.jpg";
 import dompe2 from "../assets/dompe_2.jpg";
 import transporteResiduos from "../assets/transporte_residuos.jpg";
 import processo from "../assets/Proceso-de-recoleccion.jpg";
+import videoDestruccion from "../assets/destrucciónFiscal.mp4";
+import tambos from "../assets/tambos.png";
 
 const dialogOpen = ref(false);
 const selectedService = ref(null);
@@ -351,13 +394,18 @@ const services = [
     details: {
       fullDescription: `
     <p class="mb-2">
-      Reacondicionamos tambos y totes tanto metálicos como de plástico para el almacenaje de tus productos, tenemos la infraestructura para gran volumen.
+      Reconstructora de Tambos no comercializa tambos usados de segunda mano. Nos especializamos en tambos reacondicionados, trabajados bajo estrictas autorizaciones ambientales y conforme a la normativa vigente.
     </p>
-    <p class="mb-2">
-      Vendemos tambos <strong>metálicos</strong> y de <strong> plástico </strong> de 200 litros tipo abierto y tipo cerrado. Abierto con tapa cincho y perno; y cerrado con tapones.
-    </p>
-    <p style="font-weight: 600; color: #00996c">Damos servicio de quitar la tapa y engargolar sus tambos metálicos, para convertirlos en tipo abierto.</p>
-    `,
+    <p class="mb-2">Nuestro compromiso es ofrecer productos:</p>
+    <ul class="mb-2">
+      <li>Libres de golpes, impurezas y etiquetas.</li>
+      <li>Pintados en el color de su preferencia.</li>
+      <li>Respaldados por un plan de manejo aprobado por CEDES.</li>
+      </ul>
+      <p class="mb-2">Además, somos <strong>coexportadores</strong> hacia Estados Unidos, Canadá y Europa, garantizando estándares de calidad internacional.</p>
+      <p class="mb-2">La apariencia de nuestros tambos es prácticamente nueva, pero a un costo mucho más accesible.</p>
+      <p style="color: #00996c; font-weight: 600">También compramos y vendemos tambos, totes, porrones y cubetas, brindando soluciones integrales para distintas necesidades industriales y comerciales.</p>
+      `,
       sections: [
         {
           type: "image",
@@ -396,7 +444,14 @@ const services = [
         "Optimizar espacio y reducir costos de almacenamiento.",
         "Respaldar deducciones fiscales mediante evidencia y certificación del proceso.",
       ],
-      sections: [],
+      sections: [
+        {
+          type: "video",
+          src: [videoDestruccion],
+          alt: "Destrucción Fiscal",
+          subtitle: "",
+        },
+      ],
     },
   },
   {
@@ -418,6 +473,7 @@ const services = [
         "Orden y limpieza en obra.",
         "Cumplimiento legal y ambiental.",
         "Optimización de tiempo y recursos.",
+        "Entrega de manifiestos debidamente completados y sellados por los responsables de la cadena de custodia, garantizando el seguimiento hasta la disposición final.",
       ],
       sections: [
         {
@@ -452,18 +508,29 @@ const services = [
       sections: [
         {
           type: "image",
-          src: [processo],
-          alt: "Proceso de recolección",
-          subtitle: "Proceso",
-        },
-        {
-          type: "image",
           src: [transporteResiduos],
           alt: "Transporte de residuos orgánicos",
           subtitle: "Vehículos",
         },
       ],
     },
+  },
+];
+
+const moreInfo = [
+  {
+    tag: "Nuestro proceso",
+    title: "Proceso de Recolección",
+    description:
+      "Contamos con un proceso estructurado en 4 pasos que garantiza calidad y eficiencia en cada etapa del servicio. Desde la recolección inicial hasta la entrega final, cada paso está diseñado para cumplir con los más altos estándares.",
+    image: processo,
+  },
+  {
+    tag: "Tambos",
+    title: "Tambos de Alta Calidad",
+    description:
+      "Especializados en el reacondicionamiento de tambos metálicos y de plástico para grandes volúmenes. Nuestras instalaciones cumplen con todas las normativas de seguridad y calidad.",
+    image: tambos,
   },
 ];
 </script>

@@ -16,12 +16,12 @@ import heroBg from "../assets/heroBg.jpg";
         <v-col cols="12" md="8">
           <!-- Badge -->
           <v-chip color="#00996c" variant="tonal" class="mb-6">
-            Líderes en Reconstructora de tambos
+            Reconstructora de tambos
           </v-chip>
 
           <!-- Title -->
           <h1 class="hero-title mb-6">
-            Reconstructora de
+            Líderes en Reconstructora de
             <span class="gradient-text">Tambos</span>
           </h1>
 
