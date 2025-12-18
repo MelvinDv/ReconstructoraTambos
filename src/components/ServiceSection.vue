@@ -142,7 +142,7 @@
             <div v-if="section.type === 'video'" class="d-flex flex-wrap gap-4">
               <video
                 controls
-                width="600"
+                width="100%"
                 v-for="(vidSrc, vidIndex) in section.src"
                 :key="vidIndex"
               >
@@ -442,7 +442,7 @@ const services = [
       ],
       benefits: [
         "Optimizar espacio y reducir costos de almacenamiento.",
-        "Respaldar deducciones fiscales mediante evidencia y certificación del proceso.",
+        "Respaldar destrucciones fiscales mediante evidencia y certificación del proceso.",
       ],
       sections: [
         {

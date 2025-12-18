@@ -51,17 +51,48 @@ const stats = [
             <span class="gradient-text"> Reconstructora de Tambos </span>
           </h2>
 
+          <p class="about-text mb-2">
+            Reconstructora de Tambos es una empresa autorizada para el
+            transporte y manejo de residuos especial.
+          </p>
+
+          <ol class="about-text mb-2 ml-10">
+            <li>En materia de Impacto Ambiental.</li>
+            <li>Licencia de Funcionamiento.</li>
+            <li>
+              El acopio de y almacenamiento de residuos de manejo especial
+              provenientes de terceros y, en general, la realización de
+              cualquiera de las actividades relacionadas con el manejo de dichos
+              residuos.
+            </li>
+            <li>
+              La prestación de servicios para el manejo de residuos de manejo
+              especial.
+            </li>
+            <li>Actividad riesgosa por el uso de GAS L.P.</li>
+          </ol>
+
+          <p class="about-text mb-2">
+            Así mismo en relación a lo establecido en el articulo 156 de la Ley
+            No. 171 del Equilibrio Ecológico y Protección al Ambiente del Estado
+            de Sonora, queda registrado como:
+          </p>
+
+          <ol class="about-text mb-2 ml-10">
+            <li>
+              Generador de residuos de manejo especial
+              <strong>CEDES-RGRME-142/17</strong>.
+            </li>
+          </ol>
+
           <p class="about-text mb-6">
-            Reconstructora de Tambos es una empresa autorizada y asegurada para
-            el transporte y manejo de residuos, con permisos de CEDES, SEMARNAT
-            y SCT. Cuenta con infraestructura, equipamiento y personal
-            capacitado para brindar servicios ambientales integrales a
-            industrias, comercios, minería y talleres, atendiendo tanto a
-            pequeños como grandes generadores de residuos. Además, asesora a sus
-            clientes para cumplir con la normativa vigente y ofrece
-            administración y segregación de residuos de manejo especial (RME),
-            garantizando reciclaje óptimo bajo estándares de seguridad, higiene
-            y responsabilidad ecológica.
+            Cuenta con infraestructura, equipamiento y personal capacitado para
+            brindar servicios ambientales integrales a industrias, comercios,
+            minería y talleres, atendiendo tanto a pequeños como grandes
+            generadores de residuos. Además, asesora a sus clientes para cumplir
+            con la normativa vigente y ofrece administración y segregación de
+            residuos de manejo especial (RME), garantizando reciclaje óptimo
+            bajo estándares de seguridad, higiene y responsabilidad ecológica.
           </p>
 
           <!-- Stats -->

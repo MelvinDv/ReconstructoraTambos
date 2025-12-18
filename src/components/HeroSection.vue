@@ -21,7 +21,7 @@ import heroBg from "../assets/heroBg.jpg";
 
           <!-- Title -->
           <h1 class="hero-title mb-6">
-            Líderes en Reconstructora de
+            Líderes en la reconstrucción de
             <span class="gradient-text">Tambos</span>
           </h1>
 
